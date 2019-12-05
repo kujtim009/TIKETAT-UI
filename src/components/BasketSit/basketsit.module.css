@@ -1,0 +1,31 @@
+.basketsit{
+    margin: 2px;
+    border: 1px solid rgb(199, 199, 199);
+    background-color: rgb(255, 255, 255);
+    width:50px;
+    min-height: 45px;
+    border-radius: 2px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.basketsit:hover {
+    border: 1px solid rgb(218, 116, 1);
+    box-shadow: 5px 5px 5px grey;
+}
+
+.regioniStyle{
+    color: black;
+    font-size: 14px;
+}
+.reshtiStyle{
+    color: rgb(204, 108, 52);
+    font-size: 14px;
+}
+.ulsaStyle{
+    color: rgb(20, 145, 68);
+    font-size: 16px;
+}

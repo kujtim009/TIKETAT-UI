@@ -1,0 +1,77 @@
+.region {
+    width: 1124px;
+    min-height: 700px;
+    position: absolute;
+    left: 50%;
+    margin-left: -562px;
+    top: 50%;
+    margin-top: -350px;
+    box-shadow: 1px 2px 20px 5px #626262;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+}
+
+.closeButton{
+    float: right;
+    background-color: rgb(197, 0, 0); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.printButton{
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.sitsStyling{
+    display: inline-block
+}
+
+.bottomContainer{  
+    position: absolute;
+    float: left;
+    bottom: 0;
+    left: 0;
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    min-height: 60px;
+    vertical-align: baseline;
+    background-color: rgb(255, 255, 255);
+  }
+
+
+.basketIcon{  
+    margin: 2px;
+    float: left;
+    width: 53px;
+    min-width: 50px;
+    min-height: 60px;
+    border-right: 1px solid rgb(214, 213, 213);
+}
+
+.basketContainer{  
+  float: left;
+  border: 1px solid rgb(146, 146, 146);
+  box-shadow: 2px 2px 5px 2px grey;
+  width: 79%;
+  min-height: 60px;
+  vertical-align: baseline;
+  background-color: azure;
+  padding-top: 5px;
+}

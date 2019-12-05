@@ -1,0 +1,35 @@
+.greenButton{
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.greenButton:hover{
+    background-color: rgb(120, 207, 123);
+    font-weight: 500;
+}
+
+.redButton{
+    float: right;
+    background-color: rgb(214, 6, 6);
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.redButton:hover{
+    background-color: rgb(248, 53, 53);
+    font-weight: 500;
+}

@@ -1,0 +1,31 @@
+.region {
+    width: 1163px;
+    min-height: 838px;
+    position: absolute;
+    left: 50%;
+    margin-left: -612px;
+    top: 50%;
+    margin-top: -430px;
+    box-shadow: 1px 2px 20px 5px #626262;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+}
+
+.closeButton{
+    float: right;
+    background-color: rgb(255, 209, 209); /* Green */
+    border: none;
+    width: 20px;
+    height: 20px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.canvas{
+    width: 1124px;
+    min-height: 652px;
+}

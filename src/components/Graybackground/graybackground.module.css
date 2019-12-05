@@ -1,0 +1,10 @@
+.grayback {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgb(180, 176, 176);
+    
+    opacity: 0.7;
+    min-height: 100%;
+    min-width: 100%; 
+}

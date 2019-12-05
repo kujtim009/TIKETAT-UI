@@ -1,0 +1,20 @@
+.sit{
+    border: 1px solid rgb(127, 214, 45);
+    width:30px;
+    min-height:28px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.sit:hover {
+    border: 1px solid rgb(54, 124, 47);
+    box-shadow: 2px 2px 5px rgb(35, 112, 16);
+    font-weight: bold;
+    font-size: 14px;
+} 
+
+.sit:disabled {
+    color: white;
+}

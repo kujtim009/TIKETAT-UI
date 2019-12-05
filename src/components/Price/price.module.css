@@ -1,0 +1,41 @@
+.priceContainer{
+    float: right;
+    vertical-align: baseline;
+    border: 1px solid rgb(136, 156, 23);
+    box-shadow: 2px 2px 5px 2px rgb(213, 247, 25);
+    width: 20.5%;
+    min-height: 64px;
+    vertical-align: baseline;
+    background-color: rgb(58, 170, 48);
+}
+
+.counter{
+    float: right;
+    vertical-align: baseline;
+    vertical-align: baseline;
+    color: rgb(15, 68, 11);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+.caption{
+    font-size: 18px;
+    color: rgb(15, 68, 11);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.price{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.priceContainer{
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
+}

@@ -1,0 +1,17 @@
+.btn{
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 7px;
+    text-align: center;
+    text-decoration: none;
+    min-height: 27px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgb(120, 207, 123);
+    font-weight: 500;
+}

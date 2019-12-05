@@ -1,0 +1,163 @@
+.ticket{
+    margin: 2px;
+    width:21cm;
+    min-width: 21cm;
+    height: 5.7cm;
+    min-height: 5.7cm;
+    text-align: center;
+    cursor: pointer;
+    /* border: 1px solid black; */
+    page-break-after: always;
+}
+
+.left{
+    margin: 2px;
+    width: 16cm;
+    min-width: 16cm;
+    height: 5.7cm;
+    min-height: 5.7cm;
+    border-right: 1px dashed rgb(3, 3, 3);
+    float: left;
+}
+
+.right{
+    margin: 2px;
+    width: 4.6cm;
+    min-width: 4.6cm;
+    height: 5.7cm;
+    min-height: 5.7cm;
+    float: left;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.barcode{
+    width: 2.5cm;
+    min-width: 2.5cm;
+    height: 5.7cm;
+    min-height: 5.7cm;
+    float: left;
+    font-size: 10px;
+    position: relative;
+}
+
+.barcodeContent{
+    bottom: -20px;
+    transform: rotate(-90deg);
+    /* transform-origin: 10px 70px 0; */
+    transform-origin: 10px 5px 0;
+    position: absolute;
+}
+
+
+.header{
+    width: 14.5cm;
+    min-width: 14.5cm;
+    height: 1.5cm;
+    min-height: 1.5cm;
+}
+
+.titulli{
+    font-family: Arial, 'Arial Narrow';
+    font-size: 24px;
+    font-weight: bold;
+    width: 14cm;
+    min-width: 14cm;
+    height: 2cm;
+    min-height: 2.1cm;
+
+}
+
+.footer{
+    width: 14cm;
+    min-width: 14cm;
+    height: 2cm;
+    min-height: 2cm;
+}
+
+.topInfoBlock{
+    font-family: Arial, 'Arial Narrow';
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    line-height: 12px;
+    width: 70px;
+    min-width: 70px;
+    text-align: left;
+    float: left;
+    padding-left: 2px; 
+    border-right: 3px solid rgb(3, 3, 3);
+    background-color: ;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+
+    border: 2px solid black;
+  }
+
+.bottomInfoBlock{
+    font-family: Arial, 'Arial Narrow';
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    line-height: 12px;
+    width: 70px;
+    min-width: 70px;
+    text-align: left;
+    float: left;
+    padding-left: 2px; 
+}
+
+.titulliShqip{
+    font-family: Arial, 'Arial Narrow';
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.titulliEng{
+    font-family: Arial, 'Arial Narrow';
+    font-size: 10px;
+}
+
+.titulliInfo{
+    font-family: Arial, 'Arial Narrow';
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.titulliInfoBottom{
+    font-family: Arial, 'Arial Narrow';
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.titulliInfoRight{
+    font-family: Arial, 'Arial Narrow';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.print {
+    page-break-after: always;
+}
+
+
+.ticket:hover {
+    border: 1px solid rgb(218, 116, 1);
+    box-shadow: 5px 5px 5px grey;
+}
+
+.regioniStyle{
+    color: black;
+    font-size: 14px;
+}
+.reshtiStyle{
+    color: rgb(204, 108, 52);
+    font-size: 14px;
+}
+.ulsaStyle{
+    color: rgb(20, 145, 68);
+    font-size: 16px;
+}

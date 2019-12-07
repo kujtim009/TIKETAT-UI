@@ -8,6 +8,7 @@ import Label from '../../components/Label/label';
 import Button from '../../components/Button/button';
 import Gray from '../../components/Graybackground/graybackground';
 import Selector from '../../components/Selector/selector';
+import Regionsales from '../../components/RegionSales/regionsales';
 
 class Shitja extends Component {
 
@@ -40,12 +41,26 @@ class Shitja extends Component {
         // console.log("SHOWSHITJA.JS STORE123: ", this.props);
         const redirectCom = (this.props.showShitja)? <Redirect to='/main/shitja' />:<Redirect to='/main' />;
         let totalPayment = 0;
+        let shitjaPerRegjion = {}
+        let regionsalesComponent = []
         if (this.props.currentGameSales.length >=1){
             // let totalPayment = 0;
             this.props.currentGameSales.forEach(element => {
                 totalPayment += element.cmimi
-                
+                if (element.ulsa.regjioni.emri in shitjaPerRegjion){
+                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: shitjaPerRegjion[element.ulsa.regjioni.emri].nr + 1, cmimi:element.cmimi, totali: shitjaPerRegjion[element.ulsa.regjioni.emri].totali + element.cmimi}
+                }else{
+                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: 1, cmimi:element.cmimi, totali: element.cmimi}
+                }
             });
+            regionsalesComponent = Object.entries(shitjaPerRegjion).map((item, index)=>{
+                return <Regionsales 
+                            regjioni={item[0]}
+                            numri={item[1].nr}
+                            cmimi={item[1].cmimi}
+                            totali={item[1].totali}
+                    />
+            })
         }
         return (
             
@@ -67,11 +82,12 @@ class Shitja extends Component {
                             change={this.handleChange}
                             selectedItem={currentGameId}
                         />  
-                    <br/>
-                    <br/>
-                    <h2>Numri i biletave te shitura: {this.props.currentGameSales.length}</h2>
-                    <h2>Vlera: {totalPayment} €</h2>
+                    
+                    <h3>Numri i biletave te shitura: {this.props.currentGameSales.length}  / Vlera: {totalPayment} €</h3>
+                    { regionsalesComponent }
                     </div>
+                    
+                    
                 </div>
 
                 

@@ -1,0 +1,65 @@
+.maingreed{
+    border: 1px solid rgb(238, 238, 238);
+    min-height: 25px;
+    overflow: auto;
+    margin: 5px;
+}
+
+.regjioni{
+    background-color: rgb(185, 196, 136);
+    margin: 2px;
+    float: left;
+    text-align: center;
+    padding: 2px;
+    vertical-align: middle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    color: rgb(58, 58, 58);
+    min-width: 160px;
+    min-height: 20px;
+    font-weight: bold;
+}
+
+.numri{
+    background-color: rgb(197, 206, 159);
+    margin: 2px;
+    float: left;
+    text-align: center;
+    padding: 2px;
+    vertical-align: middle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: rgb(58, 58, 58);
+    min-width: 170px;
+    min-height: 20px;
+    font-weight: bold;
+}
+
+.cmimi{
+    background-color: rgb(221, 228, 192);
+    margin: 2px;
+    float: left;
+    text-align: center;
+    padding: 2px;
+    vertical-align: middle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    min-width: 150px;
+    min-height: 20px;
+}
+.totali{
+    background-color: rgb(219, 223, 205);
+    margin: 2px;
+    float: left;
+    text-align: center;
+    padding: 2px;
+    vertical-align: middle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    min-width: 170px;
+    min-height: 20px;
+}

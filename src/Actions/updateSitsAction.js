@@ -2,11 +2,13 @@ import axios from 'axios';
 
 export const updateSits = (data, refresh, currentGameID) => {
   const refreshFunc = refresh;
+  console.log("SHITJA: ", data)
   const shitjaInsert = data.map((item, indx)=>{
     return {
       fatura: 999,
       ndeshja: currentGameID,
-      ulsa: item.id
+      ulsa: item.id,
+      cmimi: item.cmimi
     }
   });
   return dispatch => {

@@ -46,11 +46,11 @@ class Shitja extends Component {
         if (this.props.currentGameSales.length >=1){
             // let totalPayment = 0;
             this.props.currentGameSales.forEach(element => {
-                totalPayment += element.cmimi
+                totalPayment += parseFloat(element.cmimi)
                 if (element.ulsa.regjioni.emri in shitjaPerRegjion){
-                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: shitjaPerRegjion[element.ulsa.regjioni.emri].nr + 1, cmimi:element.cmimi, totali: shitjaPerRegjion[element.ulsa.regjioni.emri].totali + element.cmimi}
+                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: shitjaPerRegjion[element.ulsa.regjioni.emri].nr + 1, cmimi:element.cmimi, totali: parseFloat(shitjaPerRegjion[element.ulsa.regjioni.emri].totali) + parseFloat(element.cmimi)}
                 }else{
-                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: 1, cmimi:element.cmimi, totali: element.cmimi}
+                    shitjaPerRegjion[element.ulsa.regjioni.emri] = {nr: 1, cmimi:element.cmimi, totali:  parseFloat(element.cmimi)}
                 }
             });
             regionsalesComponent = Object.entries(shitjaPerRegjion).map((item, index)=>{

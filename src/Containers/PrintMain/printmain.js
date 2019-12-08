@@ -31,13 +31,15 @@ class Printmain extends Component {
         })
         let counter = this.state.ticketCounter;
         const basketSits = [...this.props.ticketsData]
+        console.log("SITS TO UPDATE:", basketSits)
         const toUpdateData = basketSits.map((sits, indx)=>{
             counter++
             return {id: sits[0][1].id,
                     regjioni: sits[0][1].regjioni.id,
                     reshti: sits[0][1].reshti.id,
                     ulsa: sits[0][1].ulsa,
-                    statusi: true}
+                    statusi: true,
+                    cmimi: sits[0][1].cmimi}
         })
 
         this.props.updateSits(toUpdateData, this.props.refresh, localStorage.getItem('currentGameID'));

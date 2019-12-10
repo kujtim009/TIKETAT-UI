@@ -29,10 +29,17 @@ class Ticket extends Component {
             })
             let barcodeCode = this.props.numri.toString() + this.props.reshti.toString() + this.props.data.toString() + this.props.ora.toString()
             barcodeCode = barcodeCode.replace(/[^a-zA-Z0-9]/g, "");
-            const ulsa = (this.props.regioni == "KMB")? "Në këmbë":this.props.ulsa
+            let ulsa = "";
 
-            
-            
+            if (this.props.ulsa === "0" && this.props.regioni === "KMB") {
+                ulsa = "Në këmbë";            
+            }else if (this.props.ulsa === "0" && this.props.regioni !== "KMB"){
+                ulsa = "--";
+            }else{
+                ulsa = this.props.ulsa
+            }
+
+            const ticketPRice = (this.props.cmimi === 0)? "Gratis":this.props.cmimi + " €"
             
         return (
             <div className={classes.ticket}>
@@ -49,7 +56,7 @@ class Ticket extends Component {
                                 <div className={classes.topInfoBlock}>
                                     <span className={ classes.titulliShqip }>Cmimi</span><br className={classes.br}/>
                                     <span className={ classes.titulliEng }>Price</span><br className={classes.br}/>
-                                    <span className={ classes.titulliInfo }>{this.props.cmimi} .00 €</span>
+                                    <span className={ classes.titulliInfo }>{ ticketPRice }</span>
                                 </div>
                                 <div className={classes.topInfoBlock}>
                                     <span className={ classes.titulliShqip }>Data</span><br className={classes.br}/>
@@ -123,7 +130,7 @@ class Ticket extends Component {
                     <hr/>
                     <span className={ classes.titulliShqip }>Data: </span> <span className={ classes.titulliInfoRight }>{this.props.data}</span><br className={classes.br}/>
                     <span className={ classes.titulliShqip }>Ora: </span> <span className={ classes.titulliInfoRight }>{this.props.ora}</span><br className={classes.br}/>
-                    <span className={ classes.titulliShqip }>Cmimi: </span> <span className={ classes.titulliInfoRight }>{this.props.cmimi}.00 €</span><br className={classes.br}/>
+                    <span className={ classes.titulliShqip }>Cmimi: </span> <span className={ classes.titulliInfoRight }>{ ticketPRice }</span><br className={classes.br}/>
                 </div>
             </div>
         )

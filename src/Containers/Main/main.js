@@ -10,8 +10,6 @@ class Main extends Component {
 
     componentDidMount() {
         this.props.getGameHandler()
-        console.log("IS AUTHENTICATED: ", this.props.isauthenticated)
-        console.log("IS ADMIN: ", this.props.isAdmin)
     }
 
     render() { 
@@ -21,7 +19,6 @@ class Main extends Component {
         if (this.props.isauthenticated==false && localStorage.getItem('token')!=null)
             {   
                 this.props.checkAuthenticityHandler()
-                console.log("NOT AUTHENTICATED")
         }
         
         if(this.props.isauthenticated==false && localStorage.getItem('token')==null){

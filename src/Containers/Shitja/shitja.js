@@ -19,6 +19,7 @@ class Shitja extends Component {
     componentDidMount() {
         this.props.getGameHandler()
         this.props.getALLGamesHandler(this.props.currentGameID)
+        console.log("CHANGES MADE ON CLEANUP MASTER")
     }
     
     handleChange = (event) =>{

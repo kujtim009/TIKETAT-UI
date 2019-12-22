@@ -8,7 +8,7 @@ class ToPrint extends Component {
         let ticketNumber = Number(localStorage.getItem("ticketCounter"))
         const displayTickets = this.props.ticketsData.map((item, indx)=>{
             ticketNumber ++
-            if (indx >=1 || item != ''){
+            if (indx >=1 || item !== ''){
                 return <Ticket key={indx} 
                             ulsa={item[0][1].ulsa}
                             regioni = {item[0][1].regjioni.emri} 
@@ -24,9 +24,11 @@ class ToPrint extends Component {
                             numri = { ticketNumber }
                             tipetEndeshjeve = {this.props.tipetEndeshjeve}
                         />
+            }else{
+                return null;
             }
-            
-        })
+                
+            });
 
         return (
             <div className={classes.toprint}>

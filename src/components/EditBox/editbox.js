@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './editbox.module.css';
 
 export default function editbox(props) {
-    const size = (props.editsize != '')? props.editsize: 30;
+    const size = (props.editsize !== '')? props.editsize: 30;
 
     return (
         

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import Header from '../../components/Header/header';
 import Spinner from '../../components/Spinner/spinner';
@@ -16,15 +16,14 @@ class Main extends Component {
 
     render() { 
         let redirectCom = null;
-        let redStat = null;
         
-        if (this.props.isauthenticated==false && localStorage.getItem('token')!=null)
+        if (this.props.isauthenticated === false && localStorage.getItem('token') !== null)
             {   
                 this.props.checkAuthenticityHandler()
                 console.log("NOT AUTHENTICATED")
         }
         
-        if(this.props.isauthenticated==false && localStorage.getItem('token')==null){
+        if(this.props.isauthenticated === false && localStorage.getItem('token') === null){
             // localStorage.removeItem('token');
             redirectCom = <Redirect to='/' />;
         }

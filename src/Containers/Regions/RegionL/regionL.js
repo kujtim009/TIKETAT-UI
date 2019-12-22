@@ -27,8 +27,6 @@ class RegionL extends Component {
 
     refreshSitsHandler =()=>{
         this.props.showSits(this.props.title);
-        // this.showPrintcerMainHandler()
-        const shouldRefresh = !this.state.refresh;
         this.setState({
                 basket:[]
             })
@@ -43,10 +41,10 @@ class RegionL extends Component {
     }
 
     addToBasketHandler = (id, status, disable, ulsa) => {
-        if ((disable !== true && status !== true) || ulsa == 0){
+        if ((disable !== true && status !== true) || ulsa === 0){
 
             const regionDataArray = Object.entries(this.props.regionData).filter((x)=>{
-                return x[1].id == id;
+                return x[1].id === id;
             });
             
             this.setState(state => {
@@ -61,7 +59,7 @@ class RegionL extends Component {
                     
                 if (this.props.isAdmin){
                     const regionDataArray = Object.entries(this.props.regionData).filter((x)=>{
-                        return x[1].id == id;
+                        return x[1].id === id;
                     });
                     
                     this.setState(state => {
@@ -88,7 +86,7 @@ class RegionL extends Component {
             const basket = [...state.basket];
             return {
               basket: basket.filter((item)=>{
-                  return item[0][1].id != id
+                  return item[0][1].id !== id
               }),
             };
         });
@@ -96,8 +94,11 @@ class RegionL extends Component {
 
     calclTotalPRice = () =>{
         const totalArray = this.state.basket.map((item, indx)=>{
-            if (item != ''){
-                return item[0][1].cmimi;}
+            if (item !== ''){
+                return item[0][1].cmimi;
+            }else{
+                return null
+            }
         });
         
         if (totalArray.length>=1){
@@ -119,7 +120,7 @@ class RegionL extends Component {
         let rows = {};
         if (this.props.regionData) {
             const sitsObj = this.props.regionData;
-            const sits = Object.entries(sitsObj)
+            // const sits = Object.entries(sitsObj)
             
             for (let sit in sitsObj){
 
@@ -136,8 +137,8 @@ class RegionL extends Component {
                 let disable = false;
                 for (let item in this.state.basket){
                     
-                    if (this.state.basket[item][0][1] != undefined){
-                        if (this.state.basket[item][0][1].id == tempUlsaID && tempUlsa != "0"){
+                    if (this.state.basket[item][0][1] !== undefined){
+                        if (this.state.basket[item][0][1].id === tempUlsaID && tempUlsa !== "0"){
                             disable = true;
                         }
                     }
@@ -186,7 +187,7 @@ class RegionL extends Component {
             } catch (error) {}
         
         const displayBasket = this.state.basket.map((item, indx)=>{
-            if (indx >=1 || item != ''){
+            if (indx >= 1 || item !== ''){
                 return <BasketSit key={indx} 
                         ulsa={item[0][1].ulsa}
                         regioni = {item[0][1].regjioni.emri} 
@@ -194,6 +195,8 @@ class RegionL extends Component {
                         cmimi = {item[0][1].cmimi}
                         click = {() => this.removeFromBasket(item[0][1].id)}
                         calcTotPRice = { this.calclTotalPRice }/>
+            }else{
+                return null;
             }
             
         })

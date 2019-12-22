@@ -5,7 +5,6 @@ import { getCurrentGame } from '../../Actions/gamesetupactions';
 import { getAllGamesActionHandler } from '../../Actions/shitjaActions';
 import { Redirect } from "react-router-dom";
 import Label from '../../components/Label/label';
-import Button from '../../components/Button/button';
 import Gray from '../../components/Graybackground/graybackground';
 import Selector from '../../components/Selector/selector';
 import Regionsales from '../../components/RegionSales/regionsales';
@@ -27,7 +26,7 @@ class Shitja extends Component {
             selectGameID: event.target.value
         })
         this.props.getALLGamesHandler(event.target.value)
-    }
+    }       
  
     closeGameSetup = (e) => {
         this.setState({

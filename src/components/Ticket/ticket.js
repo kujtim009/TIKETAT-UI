@@ -20,7 +20,7 @@ class Ticket extends Component {
     
     render() {
             const tipi = this.props.tipetEndeshjeve.filter((item)=>{
-                if (item['id'] == this.props.ndeshja){
+                if (item['id'] === this.props.ndeshja){
                     return true
                 }
                 else{

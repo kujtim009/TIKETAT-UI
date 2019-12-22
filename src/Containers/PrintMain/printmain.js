@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { updateSits } from '../../Actions/updateSitsAction';
 import Button from '../../components/Button/button';
 import ToPrint from '../../components/ToPrint/toprint';
-import Print from '../../components/Print/print';
 
 class Printmain extends Component {
     state = {
@@ -56,25 +55,10 @@ class Printmain extends Component {
 
     render() {
 
-        // const displayTickets = this.props.ticketsData.map((item, indx)=>{
-        //     if (indx >=1 || item != ''){
-        //         return <Ticket key={indx} 
-        //                     ulsa={item[0][1].ulsa}
-        //                     regioni = {item[0][1].regjioni.emri} 
-        //                     reshti = {item[0][1].reshti.emri} 
-        //                     cmimi = {item[0][1].cmimi}
-        //                     calcTotPRice = { this.calclTotalPRice }
-        //                 />
-        //     }
-            
-        // })
-        let printo = (this.state.print)? <Print click={this.updateSitsHandler}/> : <ToPrint ticketsData={ this.props.ticketsData } totalPrice = { this.calclTotalPRice }
-   />
         return (
             <div className={classes.printMain}>
                 <div>
                     <Button btntype="red" click={this.props.close} title="Mbylle"/>
-                    {/* <Button btntype="green" click={this.updateSitsHandler} title="Printo"/> */}
                    
                     <ReactToPrint
                         trigger={() =>  <button className={btnClasses.greenButton}>PRINTO</button>}
@@ -85,9 +69,7 @@ class Printmain extends Component {
                    
                 </div>
                 <br/><br/>
-               {/* { displayTickets } */}
-               
-               {/* { printo }  */}
+
                <div ref={el => (this.componentRef = el)}>
                     <ToPrint 
                         ticketsData={ this.props.ticketsData } 

@@ -14,18 +14,12 @@ state = {
 
 
 onChangeHandler = (event) =>{
-    // console.log('On change handler executed:', event.target.value);
     this.setState({
         [event.target.name]: event.target.value
     })
     
 }
 
-
-componentDidUpdate(){
-    // console.log("LOGIN.JS DID MOUNT STATE:",this.state)
-    // console.log("LOGIN.JS DID MOUNT STORE:",this.props.state)
-}
 
 submitHandler = (event) => {
     event.preventDefault();
@@ -36,12 +30,9 @@ submitHandler = (event) => {
 }
 
 renderRedirect = () => {
-    if (this.props.isauthenticated==true || localStorage.getItem('token') != null) {
+    if (this.props.isauthenticated === true || localStorage.getItem('token') != null) {
         return <Redirect to='/main' />
     }else{
-        // this.setState({
-        //     message: "Wrong username or password!"
-        // })
         return <Redirect to='/' />  
     }
   }

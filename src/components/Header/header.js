@@ -8,6 +8,11 @@ class Header extends Component {
         redirect: false
     }
 
+
+    componentDidMount(){
+        console.log("HEADER.JS DID MOUNT", this.props.isadmin);
+         }
+
     clearStorage = (e) => {
         e.preventDefault();
         console.log('LINK WAS CLICKED');
@@ -18,8 +23,10 @@ class Header extends Component {
 
 
     render() {
-            const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><a href="/#" onClick={this.props.showshitja}>Shitja</a></li><li><a href="/#" onClick={this.props.showsetup}>Regullimet</a></li></React.Fragment>:null;
+        const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><a href="/#" onClick={this.props.showshitja}>Shitja</a></li><li><a href="/#" onClick={this.props.showsetup}>Regullimet</a></li></React.Fragment>:null;
+   
             return (
+                
                 <div>
                    
                     <ul>

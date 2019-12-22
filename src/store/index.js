@@ -36,7 +36,7 @@ const Reducer = (state = initialState, action) => {
     switch (action.type) {
 
         case 'SUCCESS_LOGIN':
-            return {...state, token: action.payload.token, username: action.payload.username, isauthenticated: true, showspinner: false}
+            return {...state, token: action.payload.token, username: action.payload.username, isauthenticated: true, isAdmin: true, showspinner: false}
         case 'START_LOGIN':
                 return {...state, showspinner: true}
         case 'FAILD_LOGIN':

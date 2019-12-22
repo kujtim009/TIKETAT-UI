@@ -13,23 +13,22 @@ export const postLoginCall = (email, password) => {
         localStorage.clear();
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('username', email)
-        dispatch(addTodoSuccess({...res.data, username:email}));
+        // dispatch(addTodoSuccess({...res.data, username:email}));
 
 
                 axios.get('/shitja', {headers:{Authorization: "Token " + res.data.token}})
                 .then(res => {
-                  dispatch(checkSuccess());
+                  // dispatch(checkSuccess());
+                  dispatch(addTodoSuccess({...res.data, username:email}));
                 })
                 .catch(err => {
-                  if (err.response.status == 401){
+                  if (err.response.status === 401){
                     dispatch(checkFaild_401(err));
                   }else{
                     dispatch(checkFaild_403(err));
                   }
                   
                 });
-
-
       })
       .catch(err => {
         dispatch(addTodoFailure(err.message));
@@ -57,17 +56,19 @@ const addTodoFailure = error => ({
 
 
 export const checkAuthenticityAction = () => {
+  console.log("CHECKING AUTHENTICITY");
+
   return dispatch => {
     dispatch(checkStart());
 
     const token = localStorage.getItem('token');
     axios.get('/shitja', {headers:{Authorization: "Token " + token}})
       .then(res => {
-        console.log("CHECK SUCCESFULL")
+        
         dispatch(checkSuccess());
       })
       .catch(err => {
-        if (err.response.status == 401){
+        if (err.response.status === 401){
           localStorage.removeItem('token');
           dispatch(checkFaild_401(err));
         }else{

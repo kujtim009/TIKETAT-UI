@@ -6,22 +6,24 @@ import Spinner from '../../components/Spinner/spinner';
 import MainGreed from '../../components/MainGrid/maingrid';
 import {checkAuthenticityAction} from '../../Actions/loginActions';
 import { getCurrentGame } from '../../Actions/gamesetupactions';
+
 class Main extends Component {
 
     componentDidMount() {
         this.props.getGameHandler()
-        console.log("IS AUTHENTICATED: ", this.props.isauthenticated)
-        console.log("IS ADMIN: ", this.props.isAdmin)
+        console.log("main.js DID MOUNT: ",this.props.isauthenticated, this.props.isadmin)
     }
 
+    componentWillMount(){
+        
+    }
     render() { 
         let redirectCom = null;
         
-        if (this.props.isauthenticated === false && localStorage.getItem('token') !== null)
-            {   
-                this.props.checkAuthenticityHandler()
-                console.log("NOT AUTHENTICATED")
-        }
+        // if (this.props.isauthenticated === false && localStorage.getItem('token') !== null)
+        //     {   
+        //         // this.props.checkAuthenticityHandler()
+        // }
         
         if(this.props.isauthenticated === false && localStorage.getItem('token') === null){
             // localStorage.removeItem('token');
@@ -36,8 +38,7 @@ class Main extends Component {
         else
             {redirectCom = <Redirect to='/main' />;}
     
-        // const redirectCom = (this.props.showGameSetup)? <Redirect to='/main/setup' />:<Redirect to='/main' />;
-        // const redirectComSits = (this.props.showSits)? <Redirect to='/main/sits' />:<Redirect to='/main' />;
+
         const username = localStorage.getItem('username');
         const spinner = this.props.showspinner 
         ?<Spinner showspinner={ this.props.showspinner }/> 
@@ -53,7 +54,7 @@ class Main extends Component {
                         showsits={this.props.showSitsHandler}
                         showshitja={this.props.showShitjaHandler}
                         username={ username }
-                        isadmin={this.props.isAdmin}
+                        isadmin={this.props.isadmin}
                     />
 
                 </div>

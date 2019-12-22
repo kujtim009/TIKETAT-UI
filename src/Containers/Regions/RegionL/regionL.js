@@ -221,7 +221,7 @@ class RegionL extends Component {
                         <div className={classes.basketContainer}>
 
                             <div className={classes.basketIcon}>
-                                <img src={basketImg} />
+                                <img src={basketImg} alt=""/>
                             </div>
 
                             {displayBasket}

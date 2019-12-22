@@ -1,9 +1,12 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
+import store from './store/';
+
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000';
 class Doc extends React.Component{
@@ -13,7 +16,9 @@ class Doc extends React.Component{
   
     render(){
       return(
-        <App />
+        <Provider store = { store }>
+          <App />
+        </Provider>
       )
     }
   }

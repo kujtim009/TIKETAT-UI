@@ -13,7 +13,7 @@ export const postLoginCall = (email, password) => {
         localStorage.clear();
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('username', email)
-        // dispatch(addTodoSuccess({...res.data, username:email}));
+        console.log("USER LOGIN: ", res)
 
 
                 axios.get('/shitja', {headers:{Authorization: "Token " + res.data.token}})

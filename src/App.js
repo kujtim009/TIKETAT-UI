@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import Login from './Containers/Login/login';
 import Main from './Containers/Main/main';
@@ -8,7 +7,6 @@ import Gamesetup from './Containers/GameSetup/gamesetup';
 import SitsStatus from './Containers/SitsStatus/sitsstatus';
 import Shitja from './Containers/Shitja/shitja';
 import {checkAuthenticityAction} from './Actions/loginActions';
-import store from './store/';
 
 class App extends Component {
 

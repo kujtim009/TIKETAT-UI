@@ -20,23 +20,17 @@ class Main extends Component {
     render() { 
         let redirectCom = null;
         
-        // if (this.props.isauthenticated === false && localStorage.getItem('token') !== null)
-        //     {   
-        //         // this.props.checkAuthenticityHandler()
-        // }
-        
         if(this.props.isauthenticated === false && localStorage.getItem('token') === null){
-            // localStorage.removeItem('token');
             redirectCom = <Redirect to='/' />;
         }
-        else if (this.props.showSits)
-            {redirectCom = <Redirect to='/main/sits' />;}
-        else if (this.props.showGameSetup) 
-            {redirectCom = <Redirect to='/main/setup' />;}
-        else if (this.props.showShitja) 
-            {redirectCom = <Redirect to='/main/shitja' />;}
-        else
-            {redirectCom = <Redirect to='/main' />;}
+        // else if (this.props.showSits)
+        //     {redirectCom = <Redirect to='/main/sits' />;}
+        // else if (this.props.showGameSetup) 
+        //     {redirectCom = <Redirect to='/main/setup' />;}
+        // else if (this.props.showShitja) 
+        //     {redirectCom = <Redirect to='/main/shitja' />;}
+        // else
+        //     {redirectCom = <Redirect to='/main' />;}
     
         const username = localStorage.getItem('username');
         const spinner = this.props.showspinner 

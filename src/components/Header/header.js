@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import classes from '../Header/header.module.css';
 
 
@@ -23,20 +24,18 @@ class Header extends Component {
 
 
     render() {
-        const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><a href="javascript:;" onClick={this.props.showshitja}>Shitja</a></li><li><a href="javascript:;" onClick={this.props.showsetup}>Regullimet</a></li></React.Fragment>:null;
+        const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><Link to="/main/shitja" onClick={this.props.showshitja}>Shitja</Link></li><li><Link to="/main/setup" onClick={this.props.showsetup}>Regullimet</Link></li></React.Fragment>:null;
    
             return (
                 
                 <div>
-                   
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        
-                        <li><a href="/#" onClick={this.props.showsits}>Ulset</a></li>
+                    <ul> 
+                        <li><Link to="/main/sits"  onClick={this.props.showsits}>Ulset</Link></li>
+                        {/* <li><a href="/#" onClick={this.props.showsits}>Ulset</a></li> */}
                         {showAdminLinks}
-                        <li style={{float:'right'}}><a className={classes.active} onClick={this.clearStorage} href="/#">Log out</a></li>
-                        <li style={{float:'right'}}><a href="/#">Hello {this.props.username}</a></li>
-                        </ul>
+                        <li style={{float:'right'}}><Link to="#" className={classes.active} onClick={this.clearStorage}>Log out</Link></li>
+                        <li style={{float:'right'}}><Link to="#">Hello {this.props.username}</Link></li>
+                    </ul>
                 </div>
             )
 

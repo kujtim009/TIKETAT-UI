@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import classes from '../../components/MainGrid/maingrid.module.css';
 import bgSalla from '../../images/salla_bg.png';
-import RegionL from '../../Containers/Regions/RegionL/regionL';
+import Region from '../../Containers/Regions/Region';
 import Graybackground from '../Graybackground/graybackground';
 class Maingrid extends Component {
 
@@ -68,7 +68,7 @@ class Maingrid extends Component {
                )
         });
 
-    const showRegion = this.state.showRegion?<RegionL title={this.state.regionId} close={this.closeRegion}/>:null
+    // const showRegion = this.state.showRegion?<Region show={this.state.showRegion} regionName={this.state.regionId} close={this.closeRegion}/>:null
     const showGrayBackground = this.state.showRegion?<Graybackground />:null
 
 
@@ -82,7 +82,8 @@ class Maingrid extends Component {
                     </map>
                 </div>
                 { showGrayBackground }
-                { showRegion }
+                {/* { showRegion } */}
+                <Region show={this.state.showRegion} regionName={this.state.regionId} close={this.closeRegion}/>
             </React.Fragment>
         )
     }

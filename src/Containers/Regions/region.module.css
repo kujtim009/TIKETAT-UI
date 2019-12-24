@@ -1,7 +1,7 @@
 .region {
     width: 1124px;
     min-height: 700px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     margin-left: -562px;
     top: 50%;
@@ -9,6 +9,7 @@
     box-shadow: 1px 2px 20px 5px #626262;
     background-color: rgb(255, 255, 255);
     padding-left: 5px;
+    transition: all 0.3s ease-out;
 }
 
 .closeButton{
@@ -40,6 +41,7 @@
 }
 
 .sitsStyling{
+    
     display: inline-block
 }
 
@@ -74,4 +76,55 @@
   vertical-align: baseline;
   background-color: azure;
   padding-top: 5px;
+}
+
+
+.ModalOpen {
+    animation: openModal 0.4s ease-out forwards;
+}
+
+.ModalClosed {
+    animation: closeModal 1s ease-out forwards;
+}
+
+
+
+.fade-slide-enter-active {
+    animation: openModal 0.4s ease-out forwards;
+}
+
+
+
+.fade-slide-exit-active {
+    animation: closeModal 1s ease-out forwards;
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(90%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(60%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }

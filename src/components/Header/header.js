@@ -23,7 +23,7 @@ class Header extends Component {
 
 
     render() {
-        const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><a href="/#" onClick={this.props.showshitja}>Shitja</a></li><li><a href="/#" onClick={this.props.showsetup}>Regullimet</a></li></React.Fragment>:null;
+        const showAdminLinks = (this.props.isadmin)?<React.Fragment><li><a href="javascript:;" onClick={this.props.showshitja}>Shitja</a></li><li><a href="javascript:;" onClick={this.props.showsetup}>Regullimet</a></li></React.Fragment>:null;
    
             return (
                 

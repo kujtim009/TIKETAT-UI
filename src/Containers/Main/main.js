@@ -38,7 +38,6 @@ class Main extends Component {
         else
             {redirectCom = <Redirect to='/main' />;}
     
-
         const username = localStorage.getItem('username');
         const spinner = this.props.showspinner 
         ?<Spinner showspinner={ this.props.showspinner }/> 

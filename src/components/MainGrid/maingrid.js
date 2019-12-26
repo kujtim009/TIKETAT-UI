@@ -94,7 +94,13 @@ class Maingrid extends Component {
       <Motion
         defaultStyle={{ y: -400, opacity: 0 }}
         style={{
-          y: spring(this.state.startAnimation ? 0 : -400),
+          y: spring(
+            this.state.startAnimation ? 0 : -400,
+            spring(this.state.startAnimation ? 1 : 0, {
+              stiffness: 170,
+              damping: 12
+            })
+          ),
           opacity: spring(this.state.startAnimation ? 1 : 0)
         }}>
         {style => (

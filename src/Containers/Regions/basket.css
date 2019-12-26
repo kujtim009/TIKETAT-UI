@@ -1,0 +1,20 @@
+.basket-enter {
+    opacity: 0;
+    width: 53px;
+
+}
+
+.basket-enter-active {
+    opacity: 1;
+    width: 253px;
+    transition: opacity 0.5s ease-out;
+}
+
+.basket-exit {
+    opacity: 1;
+}
+
+.basket-exit-active {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}

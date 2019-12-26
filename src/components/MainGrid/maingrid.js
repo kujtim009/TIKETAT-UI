@@ -35,17 +35,6 @@ class Maingrid extends Component {
     ]
   };
 
-  drowDisabledSitsHandler = () => {
-    // var canvas = document.getElementById("allRegions");
-    // var ctx = canvas.getContext("2d");
-    // ctx.fillStyle = "#FF0000";
-    // ctx.fillRect(0,0,20,20);
-    // ctx.fillRect(25,0,20,20);
-  };
-  componentDidMount() {
-    this.drowDisabledSitsHandler();
-  }
-
   regjionClickHandler = event => {
     event.preventDefault();
     this.setState({
@@ -110,9 +99,8 @@ class Maingrid extends Component {
               opacity: style.opacity
             }}
             regionName={this.state.regionId}
-            close={this.closeRegion}>
-            {console.log(style.opacity)}
-          </Region>
+            close={this.closeRegion}
+          />
         )}
       </Motion>
     ) : null;
@@ -134,11 +122,6 @@ class Maingrid extends Component {
         </div>
         {showGrayBackground}
         {showRegion}
-        {/* <Region
-          show={this.state.showRegion}
-          regionName={this.state.regionId}
-          close={this.closeRegion}
-        /> */}
       </React.Fragment>
     );
   }

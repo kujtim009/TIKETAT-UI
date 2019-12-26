@@ -10,6 +10,7 @@ import basketImg from "../../images/basket.png";
 import Printmain from "../PrintMain/printmain";
 import TransitionGroup from "react-transition-group/TransitionGroup";
 import CSSTransition from "react-transition-group/CSSTransition";
+import "./basket.css";
 
 class Region extends Component {
   state = {
@@ -150,6 +151,7 @@ class Region extends Component {
               status={tempStatusi}
               reshti={tempReshti}
               disable={disable}
+              isAdmin={this.props.isAdmin}
               addtobasket={() =>
                 this.addToBasketHandler(
                   tempUlsaID,
@@ -192,6 +194,7 @@ class Region extends Component {
     let rowTitles = [];
     let displayRow = [];
     let counter = 0;
+
     try {
       rowTitles = Object.keys(rows)
         .sort()
@@ -206,11 +209,10 @@ class Region extends Component {
         counter++;
       }
     } catch (error) {}
-
     const displayBasket = this.state.basket.map((item, indx) => {
       if (indx >= 1 || item !== "") {
         return (
-          <CSSTransition key={indx} classNames="fade" timeout={300}>
+          <CSSTransition key={indx} classNames="basket" timeout={100}>
             <BasketSit
               ulsa={item[0][1].ulsa}
               regioni={item[0][1].regjioni.emri}
@@ -255,7 +257,11 @@ class Region extends Component {
               <div className={classes.basketIcon}>
                 <img src={basketImg} alt="" />
               </div>
-              <TransitionGroup component="ul">{displayBasket}</TransitionGroup>
+              <TransitionGroup
+                component="ul"
+                style={{ backgroundColor: "azure" }}>
+                {displayBasket}
+              </TransitionGroup>
             </div>
             <div className={classes.priceContainer}>
               <Price

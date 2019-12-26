@@ -1,34 +1,35 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const postLoginCall = (email, password) => {
   return dispatch => {
     dispatch(addTodoStarted());
     const data = {
-        username: email, 
-        password: password
-    }
-  
-    axios.post('/auth/', data)
+      username: email,
+      password: password
+    };
+
+    axios
+      .post("/auth/", data)
       .then(res => {
         localStorage.clear();
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('username', email)
-        console.log("USER LOGIN: ", res)
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("username", email);
 
-
-                axios.get('/shitja', {headers:{Authorization: "Token " + res.data.token}})
-                .then(res => {
-                  // dispatch(checkSuccess());
-                  dispatch(addTodoSuccess({...res.data, username:email}));
-                })
-                .catch(err => {
-                  if (err.response.status === 401){
-                    dispatch(checkFaild_401(err));
-                  }else{
-                    dispatch(checkFaild_403(err));
-                  }
-                  
-                });
+        axios
+          .get("/shitja", {
+            headers: { Authorization: "Token " + res.data.token }
+          })
+          .then(res => {
+            // dispatch(checkSuccess());
+            dispatch(addTodoSuccess({ ...res.data, username: email }));
+          })
+          .catch(err => {
+            if (err.response.status === 401) {
+              dispatch(checkFaild_401(err));
+            } else {
+              dispatch(checkFaild_403(err));
+            }
+          });
       })
       .catch(err => {
         dispatch(addTodoFailure(err.message));
@@ -37,23 +38,22 @@ export const postLoginCall = (email, password) => {
 };
 
 const addTodoSuccess = data => ({
-  type: 'SUCCESS_LOGIN',
+  type: "SUCCESS_LOGIN",
   payload: {
     ...data
   }
 });
 
 const addTodoStarted = () => ({
-  type: 'START_LOGIN'
+  type: "START_LOGIN"
 });
 
 const addTodoFailure = error => ({
-  type: 'FAILD_LOGIN',
+  type: "FAILD_LOGIN",
   payload: {
     error
   }
 });
-
 
 export const checkAuthenticityAction = () => {
   console.log("CHECKING AUTHENTICITY");
@@ -61,17 +61,17 @@ export const checkAuthenticityAction = () => {
   return dispatch => {
     dispatch(checkStart());
 
-    const token = localStorage.getItem('token');
-    axios.get('/shitja', {headers:{Authorization: "Token " + token}})
+    const token = localStorage.getItem("token");
+    axios
+      .get("/shitja", { headers: { Authorization: "Token " + token } })
       .then(res => {
-        
         dispatch(checkSuccess());
       })
       .catch(err => {
-        if (err.response.status === 401){
-          localStorage.removeItem('token');
+        if (err.response.status === 401) {
+          localStorage.removeItem("token");
           dispatch(checkFaild_401(err));
-        }else{
+        } else {
           dispatch(checkFaild_403(err));
         }
       });
@@ -79,22 +79,22 @@ export const checkAuthenticityAction = () => {
 };
 
 const checkSuccess = () => ({
-  type: 'SUCCESS_CHECK'
+  type: "SUCCESS_CHECK"
 });
 
 const checkStart = () => ({
-  type: 'START_CHECK'
+  type: "START_CHECK"
 });
 
 const checkFaild_401 = error => ({
-  type: 'FAILD_CHECK_401',
+  type: "FAILD_CHECK_401",
   payload: {
     error
   }
 });
 
 const checkFaild_403 = error => ({
-  type: 'FAILD_CHECK_403',
+  type: "FAILD_CHECK_403",
   payload: {
     error
   }

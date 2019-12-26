@@ -233,8 +233,7 @@ class Region extends Component {
         ticketsData={this.state.basket}
       />
     ) : null;
-    // console.log("SHOWPRINTERMAIN: ", this.props.showPrintermain);
-    // console.log("REGJION NAME: ", this.props.regionName, displayRow, rows)
+
     return (
       <div className={classes.region} style={this.props.style}>
         {displayPrinterMain}

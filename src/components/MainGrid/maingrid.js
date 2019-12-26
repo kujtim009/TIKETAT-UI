@@ -7,6 +7,7 @@ import Graybackground from "../Graybackground/graybackground";
 class Maingrid extends Component {
   state = {
     showRegion: false,
+    startAnimation: false,
     regionId: null,
     regjions: [
       { title: "L111", cords: "192,26,406,113" },
@@ -49,14 +50,28 @@ class Maingrid extends Component {
     event.preventDefault();
     this.setState({
       showRegion: true,
+      startAnimation: true,
       regionId: event.target.title
     });
   };
 
   closeRegion = event => {
     event.preventDefault();
-    this.setState({
-      showRegion: false
+
+    const waitForAnimation = new Promise((resolve, reject) => {
+      this.setState({
+        startAnimation: false
+      });
+
+      setTimeout(() => {
+        resolve();
+      }, 500);
+    });
+
+    waitForAnimation.then(() => {
+      this.setState({
+        showRegion: false
+      });
     });
   };
 
@@ -77,10 +92,10 @@ class Maingrid extends Component {
 
     const showRegion = this.state.showRegion ? (
       <Motion
-        defaultStyle={{ y: -200, opacity: 0 }}
+        defaultStyle={{ y: -400, opacity: 0 }}
         style={{
-          y: spring(this.state.showRegion ? 0 : -200),
-          opacity: spring(this.state.showRegion ? 1 : 0)
+          y: spring(this.state.startAnimation ? 0 : -400),
+          opacity: spring(this.state.startAnimation ? 1 : 0)
         }}>
         {style => (
           <Region
@@ -88,7 +103,6 @@ class Maingrid extends Component {
               transform: `translateY(${style.y}px)`,
               opacity: style.opacity
             }}
-            show={this.state.showRegion}
             regionName={this.state.regionId}
             close={this.closeRegion}>
             {console.log(style.opacity)}

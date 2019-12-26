@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import classes from '../Regions/region.module.css';
+import classes from './region.module.css';
 import { showSitsHandler } from '../../Actions/showSitsActions';
 import Row from '../../components/Row/row';
 import Sit from '../../components/Sit/sit';
@@ -8,25 +8,31 @@ import BasketSit from '../../components/BasketSit/basketsit';
 import Price from '../../components/Price/price';
 import basketImg from '../../images/basket.png';
 import Printmain from '../PrintMain/printmain';
+import CSSTransition from "react-transition-group/CSSTransition";
 
 
-class RegionL extends Component {
+class Region extends Component {
     state = {
         basket: [],
         totalPrice: 0,
         basketCount: 0,
         showPrintermain: false,
-        refresh: false
+        refresh: false,
+        animationTiming: {
+            enter: 400,
+            exit: 1000
+        },
+        teststate: false
     }
 
     componentDidMount() {
-        this.props.showSits(this.props.title)
+        this.props.showSits(this.props.regionName)
         
     }
 
 
     refreshSitsHandler =()=>{
-        this.props.showSits(this.props.title);
+        this.props.showSits(this.props.regionName);
         this.setState({
                 basket:[]
             })
@@ -184,7 +190,9 @@ class RegionL extends Component {
                     displayRow.push(<Row key={counter} name={rowTitles[t]}> {rows[rowTitles[t]]} </Row>);
                     counter ++;
                 }
-            } catch (error) {}
+            } catch (error) {
+                console.log("ERRORRRR")
+            }
         
         const displayBasket = this.state.basket.map((item, indx)=>{
             if (indx >= 1 || item !== ''){
@@ -203,36 +211,53 @@ class RegionL extends Component {
 
         let displayPrinterMain = (this.props.showPrintermain)? <Printmain close={this.hidePrintcerMainHandler} refresh={this.refreshSitsHandler} ticketsData={ this.state.basket }/> : null;
         // console.log("SHOWPRINTERMAIN: ", this.props.showPrintermain);
+        console.log("REGJION NAME: ", this.props.regionName, displayRow, rows)
         return (
-            <div className={classes.region}>
-                { displayPrinterMain }
-                <button onClick={this.props.close} className={classes.closeButton}>Mbylle</button>
-                <button onClick={this.showPrintcerMainHandler} className={classes.printButton}>Printo</button>
-                
-                <h2>Regjioni: {this.props.title}</h2>
-                <div className={classes.sitsStyling}>
 
+
+            <CSSTransition 
+                mountOnEnter
+                unmountOnExit 
+                in={this.props.show} 
+                timeout={this.state.animationTiming}
+                classNames={{
+                    enter: '',
+                    enterActive: classes.ModalOpen,
+                    exit: '',
+                    exitActive: classes.ModalClosed
+                }}
+            >
+
+                <div className={classes.region}>
+                    { displayPrinterMain }
+                    <button onClick={this.props.close} className={classes.closeButton}>Mbylle</button>
+                    <button onClick={this.showPrintcerMainHandler} className={classes.printButton}>Printo</button>
                     
-                    <div>
-                    {displayRow}
-                    </div>
-                    
-                    <div className={classes.bottomContainer}>
-                        <div className={classes.basketContainer}>
+                    <h2>Regjioni: {this.props.regionName}</h2>
+                    <div className={classes.sitsStyling}>
 
-                            <div className={classes.basketIcon}>
-                                <img src={basketImg} alt=""/>
-                            </div>
-
-                            {displayBasket}
-
+                        
+                        <div>
+                        {displayRow}
                         </div>
-                        <div className={classes.priceContainer}>
-                            <Price price={this.state.totalPrice} counter={this.state.basketCount}/>
+                        
+                        <div className={classes.bottomContainer}>
+                            <div className={classes.basketContainer}>
+
+                                <div className={classes.basketIcon}>
+                                    <img src={basketImg} alt=""/>
+                                </div>
+
+                                {displayBasket}
+
+                            </div>
+                            <div className={classes.priceContainer}>
+                                <Price price={this.state.totalPrice} counter={this.state.basketCount}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </CSSTransition>
         )
     }
 }
@@ -266,4 +291,4 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(RegionL);
+export default connect(mapStateToProps, mapDispatchToProps)(Region);

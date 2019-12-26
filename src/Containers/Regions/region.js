@@ -8,6 +8,7 @@ import BasketSit from "../../components/BasketSit/basketsit";
 import Price from "../../components/Price/price";
 import basketImg from "../../images/basket.png";
 import Printmain from "../PrintMain/printmain";
+import TransitionGroup from "react-transition-group/TransitionGroup";
 import CSSTransition from "react-transition-group/CSSTransition";
 
 class Region extends Component {
@@ -204,22 +205,21 @@ class Region extends Component {
         );
         counter++;
       }
-    } catch (error) {
-      console.log("ERRORRRR");
-    }
+    } catch (error) {}
 
     const displayBasket = this.state.basket.map((item, indx) => {
       if (indx >= 1 || item !== "") {
         return (
-          <BasketSit
-            key={indx}
-            ulsa={item[0][1].ulsa}
-            regioni={item[0][1].regjioni.emri}
-            reshti={item[0][1].reshti.emri}
-            cmimi={item[0][1].cmimi}
-            click={() => this.removeFromBasket(item[0][1].id)}
-            calcTotPRice={this.calclTotalPRice}
-          />
+          <CSSTransition key={indx} classNames="fade" timeout={300}>
+            <BasketSit
+              ulsa={item[0][1].ulsa}
+              regioni={item[0][1].regjioni.emri}
+              reshti={item[0][1].reshti.emri}
+              cmimi={item[0][1].cmimi}
+              click={() => this.removeFromBasket(item[0][1].id)}
+              calcTotPRice={this.calclTotalPRice}
+            />
+          </CSSTransition>
         );
       } else {
         return null;
@@ -255,8 +255,7 @@ class Region extends Component {
               <div className={classes.basketIcon}>
                 <img src={basketImg} alt="" />
               </div>
-
-              {displayBasket}
+              <TransitionGroup component="ul">{displayBasket}</TransitionGroup>
             </div>
             <div className={classes.priceContainer}>
               <Price

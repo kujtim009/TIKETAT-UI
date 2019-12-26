@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import classes from '../RegionL/regionL.module.css';
-import { showSitsHandler } from '../../../Actions/showSitsActions';
-import Row from '../../../components/Row/row';
-import Sit from '../../../components/Sit/sit';
-import BasketSit from '../../../components/BasketSit/basketsit';
-import Price from '../../../components/Price/price';
-import basketImg from '../../../images/basket.png';
-import Printmain from '../../PrintMain/printmain';
+import classes from '../Regions/region.module.css';
+import { showSitsHandler } from '../../Actions/showSitsActions';
+import Row from '../../components/Row/row';
+import Sit from '../../components/Sit/sit';
+import BasketSit from '../../components/BasketSit/basketsit';
+import Price from '../../components/Price/price';
+import basketImg from '../../images/basket.png';
+import Printmain from '../PrintMain/printmain';
 
 
 class RegionL extends Component {

@@ -41,7 +41,7 @@ class Region extends Component {
   };
 
   addToBasketHandler = (id, status, disable, ulsa) => {
-    if ((disable !== true && status !== true) || ulsa === 0) {
+    if ((disable !== true && status !== true) || ulsa === "0") {
       const regionDataArray = Object.entries(this.props.regionData).filter(
         x => {
           return x[1].id === id;

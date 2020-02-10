@@ -11,7 +11,8 @@ export const postLoginCall = (email, password) => {
     axios
       .post("/auth/", data)
       .then(res => {
-        localStorage.clear();
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("username", email);
 
